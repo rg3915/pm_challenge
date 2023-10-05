@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from pathlib import Path
 
-from decouple import config, Csv
-
+from decouple import Csv, config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,8 +37,12 @@ INSTALLED_APPS = [
     'django_extensions',
     'dr_scaffold',
     # my apps
-    # 'backend.comment'
+    'backend.comment',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+}
 
 
 MIDDLEWARE = [
